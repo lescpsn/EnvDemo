@@ -1,0 +1,63 @@
+################################################################################
+#
+# Generate Data : 2018-03-28
+#
+# Desciption    : Mac/Linux/Msys2 bash定制环境
+#                 将.myalias文件复制到~/家目录下，并将该文件包含到bash的启动配置文件中
+#                 每种系统可能启动配置文件有略微的区别
+#                 Linux(~/.profile), Mac/Msys2(~/.bash_profile)
+#
+#                 $ vim ~/.profile
+#                 . .myprofile
+#                 $ source ~/.profile
+#
+# ==============================================================================
+
+# 设置终端
+if [ "${TERM}" == "xterm" ]; then
+   export TERM=xterm-256color
+fi
+
+
+# golang 的 GOPATH 环境变量
+export GOPATH=~/Projects
+
+
+# python 的 anaconda3 虚拟环境
+export ANACONDA_LINUX=~/anaconda3
+export ANACONDA_WIN=/c/Local/Anaconda3
+
+
+
+# 安卓的NDK环境
+export NDKROOT=~/Local/android-ndk-r15c
+
+# nodejs环境
+export NODEPATH=/C/Local/nodejs
+
+
+# msys2环境中代入windwos的python环境
+export PATH=${NODEPATH}:${GOPATH}/bin:${ANACONDA_LINUX}/bin:${ANACONDA_WIN}:${ANACONDA_WIN}/Library/mingw-w64/bin:${ANACONDA_WIN}/Library/usr/bin:${ANACONDA_WIN}/Library/bin:${ANACONDA_WIN}/Scripts:${NDKROOT}:${PATH}
+
+
+# 提示符设置
+export PS1='\[\033[01;33m\]\u@\h\[\033[01;31m\] \w\$\[\033[00m\] '
+
+
+# Linux设置python运行的版本环境
+# source activate py364env-x86 # 或者 conda activate py364env-x86
+# source deactivate py364env-x86 # 或者 conda deactivate
+
+
+# Windows设置python运行的版本环境
+# activate py364env-x86
+# deactivate py364env-x86
+
+# 代理设置
+export http_proxy=http://127.0.0.1:31210
+export https_proxy=https://127.0.0.1:31210
+
+git config --global https.proxy http://127.0.0.1:31210
+git config --global https.proxy https://127.0.0.1:31210
+git config --global --unset http.proxy
+git config --global --unset https.proxy

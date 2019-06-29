@@ -1,0 +1,59 @@
+# ==============================================================================
+#
+# Generate Data : 2018-03-28
+#
+# Desciption    : Mac/Linux/Msys2 bash定制环境
+#                 将.myalias文件复制到~/家目录下，并将该文件包含到bash的启动配置文件中
+#                 每种系统可能启动配置文件有略微的区别
+#                 Linux(~/.profile), Mac/Msys2(~/.bash_profile)
+#
+#                 $ vim ~/.profile
+#                 . .myalias
+#                 $ source ~/.profile
+#
+# ==============================================================================
+
+# 定义操作系统类型
+OS_TYPE=`uname`
+
+# 设置 ls 相关别名
+if [ "X${OS_TYPE}" != "XDarwin" ]; then
+   alias ls='ls --color=auto'
+   alias ll='ls -al --color=auto'
+   alias la='ls -al --color=auto'
+   alias l='ls -al --color=auto'
+else
+   alias ls='ls'
+   alias ll='ls -al'
+   alias la='ls -al'
+   alias l='ls -al'
+fi
+
+
+# 设置 grep 相关别名
+alias grep='grep --color=auto'
+
+
+# 设置 git 相关别名
+alias gits='git status'
+alias gitd='git diff'
+alias gitp='git pull'
+alias gitpl='git pull'
+alias gitpp='git push'
+alias gitps='git push'
+alias gitacp='git add .; git commit -m "(*) 优化工程"; git push'
+
+
+# 设置 emasc 别名
+alias em='emacs'
+alias en='emacs -nw'
+alias vi='emacs'
+
+
+# 设置 cd 切换目录相关别名
+if [ "X${OS_TYPE}" == "XDarwin" -o "X${OS_TYPE}" == "XLinux" ]; then
+    alias cds='cd ~/src'
+else
+    alias cds='cd /c/src'
+fi
+
