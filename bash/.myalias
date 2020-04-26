@@ -55,7 +55,18 @@ if [ "X${OS_TYPE}" == "XDarwin" -o "X${OS_TYPE}" == "XLinux" ]; then
     alias cds='cd ~/src'
 else
     alias cds='cd /D/Projects/src'
+    alias cd192='cd /D/Projects/src/192.168.1.120'
 fi
+
+# 中文乱码
+function win() {
+	$@ |iconv -f gbk -t utf-8
+}
+alias ping="win ping"
+alias netstat="win netstat"
+alias nslookup="win nslookup"
+alias ipconfig="win ipconfig"
+
 
 
 # export all_proxy=socks5://127.0.0.1:10808
