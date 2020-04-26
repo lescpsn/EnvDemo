@@ -54,6 +54,8 @@ alias vi='emacs'
 if [ "X${OS_TYPE}" == "XDarwin" -o "X${OS_TYPE}" == "XLinux" ]; then
     alias cds='cd ~/src'
 else
-    alias cds='cd /c/src'
+    alias cds='cd /D/Projects/src'
 fi
 
+
+#  export all_proxy=socks5://127.0.0.1:10808
