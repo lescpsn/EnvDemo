@@ -1,0 +1,9 @@
+[http]
+	sslVerify = false
+[push]
+	default = simple
+[color]
+	branch = auto
+	status = auto
+	diff = auto
+	log = auto
