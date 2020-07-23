@@ -41,7 +41,7 @@ alias gitp='git pull'
 alias gitpl='git pull'
 alias gitpp='git push'
 alias gitps='git push'
-alias gitacp='git add .; git commit -m "(*) 优化工程"; git push'
+alias gitacp='git add --all .; git commit -m "(*) 优化工程"; git push'
 
 
 # 设置 emasc 别名
@@ -52,7 +52,7 @@ alias vi='emacs'
 
 # 设置 cd 切换目录相关别名
 if [ "X${OS_TYPE}" = "XDarwin" -o "X${OS_TYPE}" = "XLinux" ]; then
-    alias cds='cd ~/src'
+    alias cds='cd ~/Projects/src'
 else
     alias cds='cd /D/Projects/src'
     alias cd192='cd /D/Projects/src/192.168.1.120'
@@ -62,11 +62,13 @@ fi
 function win() {
 	$@ |iconv -f gbk -t utf-8
 }
-alias ping="win ping"
-alias netstat="win netstat"
-alias nslookup="win nslookup"
-alias ipconfig="win ipconfig"
 
+if [ "X${OS_TYPE}" != "XDarwin" -a "X${OS_TYPE}" != "XLinux" ]; then
+	alias ping="win ping"
+	alias netstat="win netstat"
+	alias nslookup="win nslookup"
+	alias ipconfig="win ipconfig"
+fi
 
 
 # export all_proxy=socks5://127.0.0.1:10808
